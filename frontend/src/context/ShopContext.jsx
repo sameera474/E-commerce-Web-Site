@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { createContext } from "react";
 import { products } from "../assets/assets";
 
@@ -12,8 +13,15 @@ const ShopContextProvider = (props) => {
     currency,
     delivery_fee,
   };
+
   return (
     <ShopContext.Provider value={value}>{props.children}</ShopContext.Provider>
   );
 };
+
+// ✅ Add this:
+ShopContextProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
 export default ShopContextProvider;
